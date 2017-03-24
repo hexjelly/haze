@@ -1,0 +1,15 @@
+[package]
+name = "holaman"
+version = "0.1.0"
+authors = ["Roger Andersen <hexjelly@hexjelly.com>"]
+
+[lib]
+name = "haze"
+path = "src/lib/lib.rs"
+
+[[bin]]
+name = "haze"
+path = "src/main.rs"
+
+[dependencies]
+irc = "0.13.3"
