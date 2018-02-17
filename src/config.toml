@@ -23,9 +23,6 @@ should_ghost = false
 ghost_sequence = []
 
 [channel_keys]
-"#fake" = "password"
 
 [options]
-note = "anything you want can be in here!"
-and = "you can use it to build your own additional configuration options."
-key = "value"
+plugins = []
