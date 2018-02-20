@@ -1,4 +1,3 @@
-extern crate irc;
 use irc::proto::message::Message;
 
 pub enum Requirements {

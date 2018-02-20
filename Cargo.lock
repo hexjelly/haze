@@ -193,7 +193,7 @@ version = "0.1.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
-name = "holaman"
+name = "hazeman"
 version = "0.1.0"
 dependencies = [
  "irc 0.13.3 (registry+https://github.com/rust-lang/crates.io-index)",

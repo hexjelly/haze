@@ -1,28 +1,22 @@
 owners = []
-nickname = "user"
-nick_password = "password"
-alt_nicks = ["user_", "user__"]
-username = "user"
-realname = "Test User"
-server = "chat.freenode.net"
-port = 6697
-password = ""
-use_ssl = true
-cert_path = "cert.der"
+nickname = "hazeman"
+alt_nicks = ["hazeman_", "hazeman__"]
+username = "hazeman"
+realname = "hazeman"
+server = "127.0.0.1"
+port = 6667
+use_ssl = false
 encoding = "UTF-8"
-channels = ["#rust", "#haskell", "#fake"]
+channels = ["#test"]
 umodes = "+RB-x"
-user_info = "I'm a test user for the irc crate."
+user_info = "hi im hazeman"
 version = "irc:git:Rust"
 source = "https://github.com/aatxe/irc"
 ping_time = 180
 ping_timeout = 10
 burst_window_length = 8
 max_messages_in_burst = 15
-should_ghost = false
-ghost_sequence = []
 
 [channel_keys]
 
 [options]
-plugins = []
