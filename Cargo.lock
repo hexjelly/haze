@@ -196,7 +196,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 name = "hazeman"
 version = "0.1.0"
 dependencies = [
- "irc 0.13.3 (registry+https://github.com/rust-lang/crates.io-index)",
+ "irc 0.13.5 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -210,7 +210,7 @@ dependencies = [
 
 [[package]]
 name = "irc"
-version = "0.13.3"
+version = "0.13.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "bufstream 0.1.3 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -666,7 +666,7 @@ dependencies = [
 "checksum fuchsia-zircon-sys 0.3.3 (registry+https://github.com/rust-lang/crates.io-index)" = "3dcaa9ae7725d12cdb85b3ad99a434db70b468c09ded17e012d86b5c1010f7a7"
 "checksum futures 0.1.18 (registry+https://github.com/rust-lang/crates.io-index)" = "0bab5b5e94f5c31fc764ba5dd9ad16568aae5d4825538c01d6bca680c9bf94a7"
 "checksum iovec 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)" = "dbe6e417e7d0975db6512b90796e8ce223145ac4e33c377e4a42882a0e88bb08"
-"checksum irc 0.13.3 (registry+https://github.com/rust-lang/crates.io-index)" = "4e8e02be8e6c839845470553865c9f3423f590e8d28d2ba24c0f51284a033fe1"
+"checksum irc 0.13.5 (registry+https://github.com/rust-lang/crates.io-index)" = "a30eb0fe918d4aa89c28e19240dd0935ec2c1a667036dc3d41f0ee3ccc599288"
 "checksum kernel32-sys 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "7507624b29483431c0ba2d82aece8ca6cdba9382bff4ddd0f7490560c056098d"
 "checksum lazy_static 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)" = "7291b1dd97d331f752620b02dfdbc231df7fc01bf282a00769e1cdb963c460dc"
 "checksum lazy_static 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)" = "c8f31047daa365f19be14b47c29df4f7c3b581832407daabe6ae77397619237d"

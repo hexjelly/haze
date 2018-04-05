@@ -4,4 +4,4 @@ version = "0.1.0"
 authors = ["Roger Andersen <hexjelly@hexjelly.com>"]
 
 [dependencies]
-irc = "0.13.3"
+irc = "0.13.5"
