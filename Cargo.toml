@@ -3,5 +3,10 @@ name = "hazeman"
 version = "0.1.0"
 authors = ["Roger Andersen <hexjelly@hexjelly.com>"]
 
+[lib]
+name = "haze"
+path = "src/lib/lib.rs"
+
 [dependencies]
-irc = "0.13.3"
+irc = "0.13.5"
+reqwest = "0.8.5"

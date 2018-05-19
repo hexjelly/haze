@@ -1,19 +1,8 @@
-mod middleware;
+extern crate haze;
 
-extern crate irc;
-use irc::client::prelude::*;
+mod plugins;
 
 fn main() {
-    let mut reactor = IrcReactor::new().unwrap();
-    let config = Config::load("src/config.toml").unwrap();
-    let client = reactor.prepare_client_and_connect(&config).unwrap();
-    client.identify().unwrap();
-
-    reactor.register_client_with_handler(client, |client, message| {
-        print!("{}", message);
-        // And here we can do whatever we want with the messages.
-        Ok(())
-    });
-
-    reactor.run().unwrap();
+    let mut bot = haze::Bot::new();
+    bot.use_middleware(plugins::title());
 }
