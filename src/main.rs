@@ -1,4 +1,6 @@
 extern crate haze;
+extern crate kuchiki;
+extern crate reqwest;
 
 mod plugins;
 
