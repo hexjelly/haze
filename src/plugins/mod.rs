@@ -23,7 +23,7 @@ impl From<()> for PluginError {
 }
 
 impl From<PluginError> for String {
-    fn from(_e: PluginError) -> String {
-        "".into()
+    fn from(e: PluginError) -> String {
+        format!("{:?}", e)
     }
 }

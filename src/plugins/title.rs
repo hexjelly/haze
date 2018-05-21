@@ -11,9 +11,13 @@ impl Middleware for TitleLink {
         "Link Title"
     }
 
-    fn process(&self) -> MessageResult {
-        let title = get_title("")?;
-        Ok(Message::new())
+    fn process(&self, msg: Option<Message>) -> MessageResult {
+        if let Some(msg) = msg {
+            let title = get_title("")?;
+            Ok(Some(Message::new()))
+        } else {
+            Ok(None)
+        }
     }
 
     fn requires(&self) -> Option<&[Requirements]> {

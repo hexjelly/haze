@@ -1,11 +1,11 @@
 [package]
-name = "hazeman"
+name = "haze"
 version = "0.1.0"
 authors = ["Roger Andersen <hexjelly@hexjelly.com>"]
 
-[workspace]
+[lib]
+name = "haze"
+path = "src/lib.rs"
 
 [dependencies]
-haze = { path = "haze" }
-reqwest = "0.8.5"
-kuchiki = "0.7.0"
+irc = "0.13.5"

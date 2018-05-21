@@ -1,5 +1,4 @@
 extern crate irc;
-extern crate reqwest;
 
 // use irc::client::prelude::*;
 

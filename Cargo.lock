@@ -301,10 +301,17 @@ dependencies = [
 ]
 
 [[package]]
-name = "hazeman"
+name = "haze"
 version = "0.1.0"
 dependencies = [
  "irc 0.13.5 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "hazeman"
+version = "0.1.0"
+dependencies = [
+ "haze 0.1.0",
  "kuchiki 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "reqwest 0.8.5 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
