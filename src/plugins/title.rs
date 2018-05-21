@@ -1,13 +1,24 @@
 use super::PluginError;
-use haze::middleware::Middleware;
+use haze::middleware::{Message, MessageResult, Middleware, Requirements};
 use kuchiki;
 use kuchiki::traits::*;
 use reqwest;
 
-pub fn title() -> Middleware {
-    let middleware = Middleware::new("link title");
+pub struct TitleLink;
 
-    middleware
+impl Middleware for TitleLink {
+    fn name(&self) -> &str {
+        "Link Title"
+    }
+
+    fn process(&self) -> MessageResult {
+        let title = get_title("")?;
+        Ok(Message::new())
+    }
+
+    fn requires(&self) -> Option<&[Requirements]> {
+        None
+    }
 }
 
 fn get_title(url: &str) -> Result<String, PluginError> {
@@ -74,8 +85,8 @@ mod tests {
 
     #[test]
     fn gets_title_https() {
-        let title = get_title("https://google.com").unwrap();
-        assert_eq!(title, "Google");
+        let title = get_title("https://duckduckgo.com/").unwrap();
+        assert!(title.contains("DuckDuckGo"));
     }
 
     // #[test]

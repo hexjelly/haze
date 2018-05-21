@@ -1,5 +1,5 @@
 mod title;
-pub use self::title::title;
+pub use self::title::TitleLink;
 
 use reqwest;
 
@@ -19,5 +19,11 @@ impl From<reqwest::Error> for PluginError {
 impl From<()> for PluginError {
     fn from(_e: ()) -> Self {
         PluginError::Unspecified
+    }
+}
+
+impl From<PluginError> for String {
+    fn from(_e: PluginError) -> String {
+        "".into()
     }
 }

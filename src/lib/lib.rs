@@ -7,7 +7,7 @@ pub mod middleware;
 use middleware::Middleware;
 
 pub struct Bot {
-    middleware: Vec<Middleware>,
+    middleware: Vec<Box<Middleware>>,
 }
 
 impl Bot {
@@ -27,7 +27,7 @@ impl Bot {
         Bot { middleware: vec![] }
     }
 
-    pub fn use_middleware(&mut self, mw: Middleware) {
-        self.middleware.push(mw);
+    pub fn use_middleware<M: 'static + Middleware>(&mut self, mw: M) {
+        self.middleware.push(Box::new(mw));
     }
 }
