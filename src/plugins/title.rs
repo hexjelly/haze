@@ -83,14 +83,24 @@ mod tests {
 
     #[test]
     fn gets_title_http() {
-        let title = get_title("http://google.com").unwrap();
-        assert_eq!(title, "Google");
+        let ddg = get_title("http://duckduckgo.com/").unwrap();
+        let google = get_title("http://google.com/").unwrap();
+
+        assert!(ddg.contains("DuckDuckGo"));
+        assert!(google.contains("Google"));
     }
 
     #[test]
     fn gets_title_https() {
-        let title = get_title("https://duckduckgo.com/").unwrap();
-        assert!(title.contains("DuckDuckGo"));
+        let minimal_test_for_troubleshooting = reqwest::get("https://google.com").unwrap();
+
+        // let ddg = get_title("https://duckduckgo.com/").unwrap();
+        // let google = get_title("https://google.com/").unwrap();
+        // let yt = get_title("https://youtube.com/").unwrap();
+        //
+        // assert!(ddg.contains("DuckDuckGo"));
+        // assert!(google.contains("Google"));
+        // assert!(yt.contains("YouTube"));
     }
 
     // #[test]
