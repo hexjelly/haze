@@ -1,9 +1,10 @@
 extern crate haze;
 extern crate kuchiki;
-extern crate reqwest;
+// extern crate reqwest;
+extern crate curl;
 
-mod plugins;
 mod config;
+mod plugins;
 
 fn main() {
     let mut bot = haze::Bot::new();
