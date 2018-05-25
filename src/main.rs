@@ -4,6 +4,7 @@ extern crate kuchiki;
 extern crate curl;
 
 mod config;
+mod helpers;
 mod plugins;
 
 fn main() {
