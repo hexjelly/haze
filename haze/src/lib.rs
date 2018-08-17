@@ -1,9 +1,13 @@
 extern crate irc;
+#[macro_use]
+extern crate log;
+#[macro_use]
+extern crate failure;
 
 // use irc::client::prelude::*;
 
 pub mod middleware;
-use middleware::Middleware;
+use middleware::{Message, Middleware};
 
 pub struct Bot {
     middleware: Vec<Box<Middleware>>,
@@ -27,6 +31,26 @@ impl Bot {
     }
 
     pub fn use_middleware<M: 'static + Middleware>(&mut self, mw: M) {
+        info!("Using middleware: {}", mw.name());
         self.middleware.push(Box::new(mw));
+    }
+
+    pub fn handle_msg(&self, mut msg: Message) {
+        for mw in &self.middleware {
+            debug!(
+                "Processing message: {:?} using \"{}\" middleware",
+                msg,
+                mw.name()
+            );
+            mw.process(&mut msg).unwrap();
+        }
+    }
+
+    pub fn list_middleware(&self) -> Vec<String> {
+        let mut names = vec![];
+        for mw in &self.middleware {
+            names.push(mw.name());
+        }
+        names
     }
 }

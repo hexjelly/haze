@@ -1,18 +1,25 @@
-use irc::proto::message;
+use failure::Error;
+pub use irc::proto::command::Command;
+pub use irc::proto::message::Message as IrcMessage;
 
-pub type MessageResult = Result<Option<Message>, String>;
+pub type MessageResult = Result<Option<String>, Error>;
 
-#[derive(Default, Debug, PartialEq)]
+#[derive(Debug, PartialEq)]
 pub struct Message {
-    handled_by: Vec<String>,
-    original: Option<message::Message>,
-    edited: Option<message::Message>,
-    exclusive: bool,
+    pub handled_by: Vec<String>,
+    pub original: IrcMessage,
+    pub chain: Vec<(String, IrcMessage)>,
+    pub exclusive: bool,
 }
 
 impl Message {
-    pub fn new() -> Self {
-        Message::default()
+    pub fn from(message: &IrcMessage) -> Self {
+        Message {
+            handled_by: vec![],
+            original: message.clone(),
+            chain: vec![],
+            exclusive: false,
+        }
     }
 }
 
@@ -24,7 +31,7 @@ pub enum Requirements {
 }
 
 pub trait Middleware {
-    fn name(&self) -> &str;
-    fn process(&self, msg: Option<Message>) -> MessageResult;
-    fn requires(&self) -> Option<&[Requirements]>;
+    fn name(&self) -> String;
+    fn process(&self, msg: &mut Message) -> MessageResult;
+    fn requires(&self) -> Vec<Requirements>;
 }

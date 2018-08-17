@@ -1,9 +1,11 @@
 mod title;
 pub use self::title::TitleLink;
 
-#[derive(Debug)]
+#[derive(Debug, Fail)]
 pub enum PluginError {
+    #[fail(display = "TitleLink error")]
     TitleError(String),
+    #[fail(display = "Unspecified plugin error")]
     Unspecified,
 }
 
