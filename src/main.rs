@@ -17,5 +17,5 @@ mod plugins;
 fn main() {
     pretty_env_logger::init();
     let mut bot = haze::Bot::new();
-    bot.use_middleware(plugins::TitleLink);
+    bot.use_middleware(plugins::LinkTitle);
 }

@@ -6,9 +6,9 @@ use kuchiki;
 use kuchiki::traits::*;
 use regex::*;
 
-pub struct TitleLink;
+pub struct LinkTitle;
 
-impl Middleware for TitleLink {
+impl Middleware for LinkTitle {
     fn name(&self) -> String {
         "Link Title".into()
     }
@@ -17,7 +17,7 @@ impl Middleware for TitleLink {
         match msg.original.command {
             Command::PRIVMSG(ref _name, ref msg) => {
                 if let Some(url) = process_msg(msg) {
-                    get_title(&url).map(|s| Some(s))
+                    get_title(&url).map(|s| Some(format!("[Title] {}", s)))
                 } else {
                     Ok(None)
                 }
@@ -56,13 +56,17 @@ fn get_title(url: &str) -> Result<String, Error> {
         let as_node = title.as_node();
         if let Some(text_node) = as_node.first_child() {
             let text = text_node.as_text().unwrap().borrow();
-            Ok(text.to_string())
+            Ok(clean_title(&text.to_string()))
         } else {
             Err(PluginError::TitleError(format!("No title found for {}", url)).into())
         }
     } else {
         Err(PluginError::TitleError(format!("No title found for {}", url)).into())
     }
+}
+
+fn clean_title(title: &str) -> String {
+    title.split_whitespace().collect::<Vec<_>>().join(" ")
 }
 
 #[cfg(test)]
@@ -103,6 +107,24 @@ mod tests {
     }
 
     #[test]
+    fn cleans_title_correctly() {
+        let title_1 = "here's two spaces  and a trailing one ";
+        let title_2 = "   leading spaces and a few trailing ones    ";
+        let title_3 =
+            " a mix of spaces and newlines  \r\n \t   \r more text\n\r \r \r \n   and a bit more ";
+
+        let result_1 = clean_title(title_1);
+        let result_2 = clean_title(title_2);
+        let result_3 = clean_title(title_3);
+        assert_eq!("here's two spaces and a trailing one", result_1);
+        assert_eq!("leading spaces and a few trailing ones", result_2);
+        assert_eq!(
+            "a mix of spaces and newlines more text and a bit more",
+            result_3
+        );
+    }
+
+    #[test]
     fn full_msg_processing() {
         let irc_msg = IrcMessage::new(
             Some("haze"),
@@ -113,7 +135,7 @@ mod tests {
 
         let mut haze_msg = Message::from(&irc_msg);
 
-        let result = Middleware::process(&TitleLink, &mut haze_msg).unwrap();
-        assert_eq!(Some("Google".to_owned()), result);
+        let result = Middleware::process(&LinkTitle, &mut haze_msg).unwrap();
+        assert_eq!("[Title] Google", result.unwrap());
     }
 }
