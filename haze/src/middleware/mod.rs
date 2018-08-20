@@ -1,13 +1,16 @@
-use failure::Error;
 pub use irc::proto::command::Command;
 pub use irc::proto::message::Message as IrcMessage;
 
-pub type MessageResult = Result<Option<String>, Error>;
+pub type MessageResult = Result<Option<String>, MWError>;
+
+#[derive(Debug, Fail)]
+pub enum MWError {
+	#[fail(display = "Plugin error [{}]", name)]
+	ProcessError { name: String, error: String },
+}
 
 #[derive(Debug, PartialEq, Clone)]
 pub struct Message {
-	pub handled_by: Vec<String>,
-	pub original: IrcMessage,
 	pub chain: Vec<(String, IrcMessage)>,
 	pub exclusive: bool,
 }
@@ -15,9 +18,7 @@ pub struct Message {
 impl Message {
 	pub fn from(message: &IrcMessage) -> Self {
 		Message {
-			handled_by: vec![],
-			original: message.clone(),
-			chain: vec![],
+			chain: vec![("Original".into(), message.clone())],
 			exclusive: false,
 		}
 	}

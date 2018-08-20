@@ -1,6 +1,6 @@
-use super::PluginError;
-use failure::Error;
-use haze::middleware::{Command, IrcMessage, Message, MessageResult, Middleware, Requirements};
+use haze::middleware::{
+    Command, IrcMessage, MWError, Message, MessageResult, Middleware, Requirements,
+};
 use helpers::get_url;
 use kuchiki;
 use kuchiki::traits::*;
@@ -14,7 +14,7 @@ impl Middleware for LinkTitle {
     }
 
     fn process(&self, msg: &mut Message) -> MessageResult {
-        match msg.original.command {
+        match msg.chain[0].1.command {
             Command::PRIVMSG(ref _name, ref msg) => {
                 if let Some(url) = process_msg(msg) {
                     get_title(&url).map(|s| Some(format!("[Title] {}", s)))
@@ -44,25 +44,29 @@ fn process_msg(msg: &str) -> Option<String> {
     }
 }
 
-fn get_title(url: &str) -> Result<String, Error> {
+fn get_title(url: &str) -> Result<String, MWError> {
     // TODO: remove multiple spaces, newlines etc
     let body = get_url(url)?;
     let document = kuchiki::parse_html().one(body.as_str());
     if let Some(title) = document
         .select("title")
-        .map_err(|_| PluginError::Unspecified)?
+        .map_err(|_| MWError::ProcessError {
+            name: Middleware::name(&LinkTitle),
+            error: "Unknown error parsing HTML body with kuchiki".into(),
+        })?
         .nth(0)
     {
         let as_node = title.as_node();
         if let Some(text_node) = as_node.first_child() {
             let text = text_node.as_text().unwrap().borrow();
-            Ok(clean_title(&text.to_string()))
-        } else {
-            Err(PluginError::TitleError(format!("No title found for {}", url)).into())
+            return Ok(clean_title(&text.to_string()));
         }
-    } else {
-        Err(PluginError::TitleError(format!("No title found for {}", url)).into())
     }
+
+    Err(MWError::ProcessError {
+        name: Middleware::name(&LinkTitle),
+        error: format!("No title found for {}", url),
+    })
 }
 
 fn clean_title(title: &str) -> String {
