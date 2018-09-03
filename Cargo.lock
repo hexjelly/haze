@@ -382,7 +382,7 @@ dependencies = [
  "curl 0.4.14 (registry+https://github.com/rust-lang/crates.io-index)",
  "failure 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "haze 0.1.0",
- "kuchiki 0.7.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "kuchiki 0.7.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "lazy_static 1.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "log 0.4.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "pretty_env_logger 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -458,7 +458,7 @@ dependencies = [
 
 [[package]]
 name = "kuchiki"
-version = "0.7.1"
+version = "0.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "cssparser 0.24.0 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1374,7 +1374,7 @@ dependencies = [
 "checksum irc 0.13.5 (registry+https://github.com/rust-lang/crates.io-index)" = "a30eb0fe918d4aa89c28e19240dd0935ec2c1a667036dc3d41f0ee3ccc599288"
 "checksum itoa 0.4.1 (registry+https://github.com/rust-lang/crates.io-index)" = "c069bbec61e1ca5a596166e55dfe4773ff745c3d16b700013bcaff9a6df2c682"
 "checksum kernel32-sys 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "7507624b29483431c0ba2d82aece8ca6cdba9382bff4ddd0f7490560c056098d"
-"checksum kuchiki 0.7.1 (registry+https://github.com/rust-lang/crates.io-index)" = "dd67181d97cea24335b4b53c9635248464cbdb066fbff4af76f4fcca13f1c97b"
+"checksum kuchiki 0.7.2 (registry+https://github.com/rust-lang/crates.io-index)" = "6a3264d916edff165fa4a157d94383de8536f7c205ea54ed3a7fa8660d923711"
 "checksum lazy_static 0.2.11 (registry+https://github.com/rust-lang/crates.io-index)" = "76f033c7ad61445c5b347c7382dd1237847eb1bce590fe50365dcb33d546be73"
 "checksum lazy_static 1.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "ca488b89a5657b0a2ecd45b95609b3e848cf1755da332a0da46e2b2b1cb371a7"
 "checksum lazycell 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)" = "a6f08839bc70ef4a3fe1d566d5350f519c5912ea86be0df1740a7d247c7fc0ef"
