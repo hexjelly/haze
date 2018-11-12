@@ -9,7 +9,7 @@ authors = ["Roger Andersen <hexjelly@hexjelly.com>"]
 haze = { path = "haze" }
 # reqwest = "0.8.5"
 kuchiki = "0.7.2"
-curl = "0.4.18"
+curl = "0.4.19"
 regex = "1"
 lazy_static = "1"
 log = "0.4"
