@@ -10,4 +10,4 @@ path = "src/lib.rs"
 [dependencies]
 irc = "0.13.6"
 log = "0.4"
-failure = "0.1.2"
+failure = "0.1.6"
