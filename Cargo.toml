@@ -8,7 +8,7 @@ authors = ["Roger Andersen <hexjelly@hexjelly.com>"]
 [dependencies]
 haze = { path = "haze" }
 # reqwest = "0.8.5"
-kuchiki = "0.7.3"
+kuchiki = "0.8.0"
 curl = "0.4.25"
 regex = "1"
 lazy_static = "1"
