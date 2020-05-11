@@ -8,6 +8,6 @@ name = "haze"
 path = "src/lib.rs"
 
 [dependencies]
-irc = "0.13.6"
+irc = "0.14.0"
 log = "0.4"
 failure = "0.1.8"
