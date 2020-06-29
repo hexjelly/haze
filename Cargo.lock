@@ -141,10 +141,10 @@ dependencies = [
 
 [[package]]
 name = "curl"
-version = "0.4.29"
+version = "0.4.30"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "curl-sys 0.4.31+curl-7.70.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "curl-sys 0.4.32+curl-7.70.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "libc 0.2.66 (registry+https://github.com/rust-lang/crates.io-index)",
  "openssl-probe 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "openssl-sys 0.9.43 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -155,7 +155,7 @@ dependencies = [
 
 [[package]]
 name = "curl-sys"
-version = "0.4.31+curl-7.70.0"
+version = "0.4.32+curl-7.70.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "cc 1.0.15 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -412,7 +412,7 @@ dependencies = [
 name = "hazeman"
 version = "0.1.0"
 dependencies = [
- "curl 0.4.29 (registry+https://github.com/rust-lang/crates.io-index)",
+ "curl 0.4.30 (registry+https://github.com/rust-lang/crates.io-index)",
  "failure 0.1.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "haze 0.1.0",
  "kuchiki 0.8.0 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1478,8 +1478,8 @@ dependencies = [
 "checksum core-foundation-sys 0.6.2 (registry+https://github.com/rust-lang/crates.io-index)" = "e7ca8a5221364ef15ce201e8ed2f609fc312682a8f4e0e3d4aa5879764e0fa3b"
 "checksum cssparser 0.27.2 (registry+https://github.com/rust-lang/crates.io-index)" = "754b69d351cdc2d8ee09ae203db831e005560fc6030da058f86ad60c92a9cb0a"
 "checksum cssparser-macros 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)" = "dfae75de57f2b2e85e8768c3ea840fd159c8f33e2b6522c7835b7abac81be16e"
-"checksum curl 0.4.29 (registry+https://github.com/rust-lang/crates.io-index)" = "762e34611d2d5233a506a79072be944fddd057db2f18e04c0d6fa79e3fd466fd"
-"checksum curl-sys 0.4.31+curl-7.70.0 (registry+https://github.com/rust-lang/crates.io-index)" = "dcd62757cc4f5ab9404bc6ca9f0ae447e729a1403948ce5106bd588ceac6a3b0"
+"checksum curl 0.4.30 (registry+https://github.com/rust-lang/crates.io-index)" = "b0447a642435be046540f042950d874a4907f9fee28c0513a0beb3ba89f91eb7"
+"checksum curl-sys 0.4.32+curl-7.70.0 (registry+https://github.com/rust-lang/crates.io-index)" = "834425a2f22fdd621434196965bf99fbfd9eaed96348488e27b7ac40736c560b"
 "checksum debug_unreachable 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "9a032eac705ca39214d169f83e3d3da290af06d8d1d344d1baad2fd002dca4b3"
 "checksum derive_more 0.99.2 (registry+https://github.com/rust-lang/crates.io-index)" = "2159be042979966de68315bce7034bb000c775f22e3e834e1c52ff78f041cae8"
 "checksum dtoa 0.4.2 (registry+https://github.com/rust-lang/crates.io-index)" = "09c3753c3db574d215cba4ea76018483895d7bff25a31b49ba45db21c48e50ab"
